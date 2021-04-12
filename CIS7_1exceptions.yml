@@ -1,0 +1,4 @@
+rhel7cis_level1: true
+rhel7cis_permit_ssh_root_login_disabled: false
+rhel7cis_xwindows_required: true
+rhel7cis_update: true

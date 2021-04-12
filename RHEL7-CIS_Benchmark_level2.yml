@@ -1,0 +1,26 @@
+---
+- hosts:  all
+  become: yes
+  become_method: sudo
+  gather_facts: true
+  ignore_errors: true
+  ignore_unreachable: true
+  vars_files:
+    - "{{ deployment_vars }}"
+
+  pre_tasks:
+
+  - name: Check ansible version
+    fail:
+        msg: You must use ansible 2.8 or greater
+    when: not ansible_version.full is version_compare('2.8', '>=')
+    tags:
+        - always
+
+  roles:
+    - role: RHEL7-CIS
+  tags:
+    - always
+    - prelim_tasks
+    - level2
+    - post_tasks

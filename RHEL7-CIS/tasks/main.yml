@@ -1,0 +1,37 @@
+---
+# tasks file for RHEL7-CIS
+- import_tasks: prelim.yml
+  become: yes
+  tags:
+      - prelim_tasks
+      - always
+
+- import_tasks: section1.yml
+  become: yes
+  when: rhel7cis_section1
+
+- import_tasks: section2.yml
+  become: yes
+  when: rhel7cis_section2
+
+- import_tasks: section3.yml
+  become: yes
+  when: rhel7cis_section3
+
+- import_tasks: section4.yml
+  become: yes
+  when: rhel7cis_section4
+
+- import_tasks: section5.yml
+  become: yes
+  when: rhel7cis_section5
+
+- import_tasks: section6.yml
+  become: yes
+  when: rhel7cis_section6
+
+- import_tasks: post.yml
+  become: yes
+  tags:
+      - post_tasks
+      - always

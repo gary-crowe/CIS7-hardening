@@ -1,0 +1,15 @@
+---
+- hosts:  all
+  become: yes
+  become_method: sudo
+  gather_facts: true
+  ignore_errors: true
+  ignore_unreachable: true
+
+  roles:
+    - role: ANY-FULL
+  tags:
+    - always
+    - prelim_tasks
+    - level2
+    - post_tasks

@@ -1,0 +1,7 @@
+inv
+.DS_Store
+.terraform/
+key
+inv
+terraform.tfstate
+terraform.tfstate.backup
