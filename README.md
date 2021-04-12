@@ -4,16 +4,21 @@
 
 This Ansible code is under development and is considered a work in progress.
 
-The Ansible scripts here can be used to harden a RHEL machines to be CIS compliant to meet level 1 or level 2 requirements.
+The Ansible scripts here can be used to harden RHEL/Centos machines to be CIS compliant to meet level 1 or level 2 requirements.
 
-This role will make significant changes to systems and could break the running operations of machines. Considering using this script on a test machine before using the script against other production level systems for remediation. Use this script at your own risk and no warranty is attached for the usage of this script as dictated by the license.
+This code will make significant changes to systems and could break the running operations of machines. Considering using this script on a test machine before using the script against other production level systems for remediation. Use this script at your own risk and no warranty is attached for the usage of this script as dictated by the license.
 
 ## Operation
-Populat eyour inventory file (inv) with the machines you want to harden.  Then run the appropriate script:
+Populate your inventory file (inv) with the machines you want to harden.  Then run the appropriate script:
 ```
 harden_full.bash       # Hardens to full level 3 standard
 harden_to_level1.bash  # Hardens to CIS 2, server 1 standard
 harden_to_level2.bash  # Hardens to CIS 2, server 2 standard
+```
+If you want to override the security paramters, enter them in the files:
+```
+CIS7_1exceptions.yml
+CIS7_2exceptions.yml
 ```
 ## System Requirements
 ```
@@ -65,6 +70,7 @@ oscap xccdf eval --profile cis --fetch-remote-resources --results scan_results.x
 RHEL7:
 oscap xccdf eval --profile C2S --fetch-remote-resources --results scan_results.xml --report scan_report.html /usr/share/xml/scap/ssg/content/ssg-rhel7-xccdf.xml
 ```
+The bash script under the testing directory is experimental but should record most of the security parameters on your system. Copy that to your target machine and run as root.
 ## License
 MIT License
 
