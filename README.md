@@ -71,6 +71,10 @@ RHEL7:
 oscap xccdf eval --profile C2S --fetch-remote-resources --results scan_results.xml --report scan_report.html /usr/share/xml/scap/ssg/content/ssg-rhel7-xccdf.xml
 ```
 The bash script under the testing directory is experimental but should record most of the security parameters on your system. Copy that to your target machine and run as root.
+## Useful site for all things security
+```
+https://github.com/decalage2/awesome-security-hardening
+```
 ## License
 MIT License
 
